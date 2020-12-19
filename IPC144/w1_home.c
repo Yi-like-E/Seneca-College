@@ -1,4 +1,3 @@
-/*Name:YiHsun Lee  Student ID.:129713202  Email:ylee212@myseneca.ca*/
 #include <stdio.h>
 int main(void)
 {
