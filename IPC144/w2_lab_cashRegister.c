@@ -1,8 +1,8 @@
 //==============================================
-// Name:           YiHsun Lee
-// Student Number: 129713202
-// Email:          ylee212@myseneca.ca
-// Section:        NTT
+// Name:           
+// Student Number: 
+// Email:          
+// Section:        
 // Workshop:       2 (in-lab)
 //==============================================
 
