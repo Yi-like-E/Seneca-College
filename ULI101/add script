@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sum=0
+
+for number
+do
+   echo "$number" | grep "[^0-9+-]" >/dev/null
+   if [ $? -eq 0 ]
+   then
+      echo "Sorry, '$number' is not a number"
+      exit 1
+   fi
+   sum=$((sum + number))
+done
+
+echo "$sum"
