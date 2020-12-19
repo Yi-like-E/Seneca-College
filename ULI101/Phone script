@@ -1,0 +1,11 @@
+#!/bin/bash
+name=$1
+if [ "$name" = "" ]
+   then echo -n "Enter a name to search for: "
+        read name
+fi
+grep -i $name ~uli101/2020c/phonebook
+value="$?"
+if [ $value -ne 0 ]
+   then echo "Name '$name' not in directory"
+fi
