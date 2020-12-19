@@ -1,10 +1,3 @@
-//==============================================
-// Name:           YiHsun Lee	
-// Student Number: 129713202
-// Email:          ylee212@myseneca.ca
-// Section:        NTT
-// Workshop:       5 (in-lab)
-//==============================================
 
 #define _CRT_SECURE_NO_WARNINGS
 
