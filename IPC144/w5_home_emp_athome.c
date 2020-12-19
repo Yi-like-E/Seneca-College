@@ -1,10 +1,3 @@
-//==============================================
-// Name:           YiHsun Lee	
-// Student Number: 129713202
-// Email:          ylee212@myseneca.ca
-// Section:        NTT
-// Workshop:       5 (at-home)
-//==============================================
 
 // Copy your source code from in_lab file to here
 // Expand the option list to include option 3 & 4 after 
