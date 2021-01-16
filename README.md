@@ -6,3 +6,11 @@ September, 2019 - Present :school:
 IPC144 - C language 
 
 ULI101 - Linux/Bash scripts
+
+
+2nd Semester :on:
+-------------------------------------
+OOP224 - C++ language
+
+WEB222 - JavaScript
+
