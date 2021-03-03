@@ -62,7 +62,7 @@ void TextFile::setNoOfLines(){
     char ch;
     int count = 0;
     std::ifstream f(m_filename);
-    while(f){
+    while(!f.eof()){  //while(f)
         ch = f.get();
         if(ch == '\n'){
             count++;
@@ -80,7 +80,10 @@ void TextFile::setNoOfLines(){
 void TextFile::loadText(){
     int i = 0;
     std::string line;
-    if(m_filename != nullptr){
+    if(m_filename == nullptr){
+        return;
+    }
+    else{
         delete[] m_textLines;
         m_textLines = new Line[m_noOfLines];
         std::ifstream f(m_filename);
@@ -94,11 +97,12 @@ void TextFile::loadText(){
 }
 
 void TextFile::saveAs(const char *fileName)const{
-    int i;
+    unsigned int i;
     std::ofstream f(m_filename);
     if(f.is_open()){
+        cout << m_noOfLines << "~~~~~~~\n";
         for(i = 0; i < m_noOfLines; i++){
-            f << m_textLines[i].m_value << endl;
+            f << m_textLines[i] << endl;
         }
     }
 }
@@ -111,7 +115,8 @@ TextFile::TextFile(unsigned pageSize){
 TextFile::TextFile(const char* filename, unsigned pageSize){
     m_pageSize = pageSize;
     setEmpty();
-    if(filename != nullptr){
+    std::ifstream f(filename);
+    if(f.good()){
         setFilename(filename);
         setNoOfLines();
         loadText();
@@ -123,7 +128,7 @@ TextFile::TextFile(const TextFile& source){
     setEmpty();
     if(source){
         setFilename(source.m_filename, true);
-        saveAs(source.m_filename);
+        saveAs(m_filename);
         setNoOfLines();
         loadText();
     }
@@ -151,21 +156,24 @@ unsigned TextFile::lines()const{
 }
 
 std::ostream& TextFile::view(std::ostream& ostr)const{
-    int i, j;
-    char input;
+    unsigned int i, count = 0;
+    char input = 'x';
+    cin.ignore();
     if(*this){
         ostr << m_filename << endl;
         ostr.width(10);
         ostr.fill('=');
         ostr << "=" << endl;
-        for(i = 0; i < m_pageSize; i++){
+        for(i = 0; i < m_noOfLines; i++){
             ostr << m_textLines[i] << endl;
-        }
-        ostr << "Hit ENTER to continue...";
-        cin >> input;
-        if(input == '\n'){
-            for(j = m_pageSize; j < (m_noOfLines - m_pageSize); j++){
-                ostr << m_textLines[j] << endl;
+            count++;
+            if(count == m_pageSize){
+                ostr << "Hit ENTER to continue...";
+                while(input!='\n'){
+                    cin>>input;
+                }
+                cin.ignore();
+                count = 0;
             }
         }
     }
