@@ -12,6 +12,6 @@ ULI101 - Linux/Bash scripts
 -------------------------------------
 OOP224 - C++ language
 
-WEB222 - JavaScript
+WEB222 - JavaScript, HTML, CSS
 
 DBS211 - Oracle DBMS
