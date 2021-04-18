@@ -1,7 +1,4 @@
 /*
- Name:       YiHsun Lee
- Student ID: 129713202
- Email:      ylee212@myseneca.ca
  Section:    NII
  Date:       2021/01/20
  I have done all the coding by myself and only copied the code
