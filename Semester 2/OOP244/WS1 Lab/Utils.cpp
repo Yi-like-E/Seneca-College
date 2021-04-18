@@ -1,10 +1,3 @@
-//
-//  Utils.cpp
-//  WS1
-//
-//  Created by YiHsun  on 2021-01-16.
-//
-
 #include <iostream>
 #include "Utils.h"
 using namespace std;
