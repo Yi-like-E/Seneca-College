@@ -1,6 +1,4 @@
 /*
- Name:      YiHsun Lee
- Email:     ylee212@myseneca.ca
  Section:   NII
  Date:      2021/02/04
  I have done all the coding by myself and only copied the code
