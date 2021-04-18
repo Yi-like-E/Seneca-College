@@ -1,10 +1,3 @@
-//
-//  ShoppingRec.cpp
-//  WS1
-//
-//  Created by YiHsun  on 2021-01-16.
-//
-
 #include <iostream>
 #include "ShoppingRec.h"
 #include "Utils.h"
