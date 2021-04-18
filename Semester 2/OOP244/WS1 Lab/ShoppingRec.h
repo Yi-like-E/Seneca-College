@@ -1,10 +1,3 @@
-//
-//  ShoppingRec.hpp
-//  WS1
-//
-//  Created by YiHsun  on 2021-01-16.
-//
-
 #ifndef ShoppingRec_h
 #define ShoppingRec_h
 
