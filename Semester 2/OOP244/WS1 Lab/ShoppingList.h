@@ -1,10 +1,3 @@
-//
-//  ShoppingList.hpp
-//  WS1
-//
-//  Created by YiHsun  on 2021-01-16.
-//
-
 #ifndef ShoppingList_h
 #define ShoppingList_h
 
