@@ -1,10 +1,3 @@
-//
-//  Utils.hpp
-//  WS1
-//
-//  Created by YiHsun  on 2021-01-16.
-//
-
 #ifndef Utils_h
 #define Utils_h
 
