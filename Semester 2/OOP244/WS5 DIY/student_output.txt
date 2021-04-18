@@ -1,0 +1,255 @@
+// Workshop 5:
+// Version: 1.0
+// Date: 2021/02/13
+// Author: Fardad Soleimanloo
+// Description:
+// This file tests the DIY section of your workshop
+/////////////////////////////////////////////
+
+#include <iostream>
+#include "Mark.h"
+using namespace std;
+using namespace sdds;
+int main() {
+   Mark m, n(25), k(200), p(-10);
+   cout << "int ............" << endl;
+   cout << int(m) << endl;
+   cout << int(n) << endl;
+   cout << int(k) << endl;
+   cout << int(p) << endl;
+   cout << "+= ............." << endl;
+   cout << int(m += 20) << endl;
+   cout << int(n += 20) << endl;
+   cout << int(k += 20) << endl;
+   cout << int(n += 60) << endl;
+   cout << "= .............." << endl;
+   cout << int(m = 80) << endl;
+   cout << int(n = 120) << endl;
+   cout << int(k = 70) << endl;
+   cout << "double ........." << endl;
+   m = 50; n = 80; k = 120;
+   cout << double(m) << endl;
+   cout << double(n) << endl;
+   cout << double(k) << endl;
+   cout << "char ..........." << endl;
+   cout << char(m) << endl;
+   cout << char(n) << endl;
+   cout << char(k) << endl; 
+   cout << "int += Mark ..." << endl;
+   int val = 60;
+   cout << (val += n) << endl;
+   cout << (val += k) << endl;
+   return 0;
+}
+
+Name:        YiHsun Lee
+Student ID.: 129713202
+Email:	     ylee212@myseneca.ca
+Section:     NII
+Date         02/19/2020
+
+	In this workshop, I learned how to define and create binary member operators, type conversion operators, unary member operators, and helper binary operators to be used between a primitive type and a class.
+	Binary and unary member operators are pretty straight forward to make. I just have to make sure if there's any right operand that needs to be used, and if there is, what is the type of it. And it is important to note that the unary operator does not take any explicit parameters unless it's a post-fix operators. 
+	The type conversion operators define implicit conversions to different types, including fundamental types, I think type conversion operators are very useful as they can convert object into a different types and be implemented through out the program. 
+	The helper operators are global functions that overload operators and they are declared outside of the class. Using helper operators may lead to growth class bloat, and another alternative it to to grant helper function friendship to the private members of a class. 
+	I found this workshop to be relatively straight forward, I just need to be careful when constructing the if statements for each function and make sure I use reference at the appropriate place so that the helper operators are working. 
+
+/*
+ Name:       YiHsun Lee
+ Student ID: 129713202
+ Email:      ylee212@myseneca.ca
+ Section:    NII
+ Date:       2021/02/19
+ I have done all the coding by myself and only copied the code
+ that my professor provided to complete my workshops and assignments.
+ */
+
+#include "Mark.h"
+using namespace std;
+namespace sdds {
+
+void Mark::setEmpty(){
+    m_mark = -1;
+}
+
+Mark::Mark(){
+    m_mark = 0;
+}
+
+Mark::Mark(int mark){
+    if(mark >= 0 && mark <= 100){
+        m_mark = mark;
+    } else {
+        setEmpty();
+    }
+}
+
+Mark& Mark::operator+=(int num){
+    if(m_mark >= 0 && m_mark <= 100){
+        m_mark += num;
+        if (m_mark > 100){
+            setEmpty();
+        }
+    }
+    return *this;
+}
+
+Mark& Mark::operator=(int& num){
+    if(m_mark >= 0 && m_mark >= 100){
+        m_mark = num;
+    } else {
+        setEmpty();
+    }
+    return *this;
+}
+
+Mark::operator int()const{
+    int mark;
+    if(m_mark == -1){
+        mark = 0;
+    }
+    else {
+        mark = m_mark;
+    }
+    return mark;
+}
+
+Mark::operator double()const{
+    double gpa = 0.0;
+    
+    if(m_mark > -1 && m_mark < 50){
+        gpa = 0.0;
+    }
+    else if(m_mark >= 50 && m_mark < 60){
+        gpa = 1.0;
+    }
+    else if(m_mark >= 60 && m_mark <70){
+        gpa = 2.0;
+    }
+    else if(m_mark >= 70 && m_mark < 80){
+        gpa = 3.0;
+    }
+    else if (m_mark >= 80 && m_mark <= 100){
+        gpa = 4.0;
+    }
+    return gpa;
+}
+
+Mark::operator char()const{
+    char grade = 'X';
+    
+    if(m_mark >= 0 && m_mark < 50){
+        grade = 'F';
+    }
+    else if(m_mark >= 50 && m_mark < 60){
+        grade = 'D';
+    }
+    else if(m_mark >= 60 && m_mark <70){
+        grade = 'C';
+    }
+    else if(m_mark >= 70 && m_mark < 80){
+        grade = 'B';
+    }
+    else if (m_mark >= 80 && m_mark <= 100){
+        grade = 'A';
+    }
+    return grade;
+}
+
+int operator+=(int& value, const Mark& mark){
+    if(mark.operator int() > -1 && value >=0){
+        value += mark.operator int();
+    }
+    return value;
+}
+}
+
+/*
+ Name:       YiHsun Lee
+ Student ID: 129713202
+ Email:      ylee212@myseneca.ca
+ Section:    NII
+ Date:       2021/02/19
+ I have done all the coding by myself and only copied the code
+ that my professor provided to complete my workshops and assignments.
+ */
+
+#ifndef Mark_h
+#define Mark_h
+
+#include <stdio.h>
+using namespace std;
+namespace sdds{
+class Mark{
+    int m_mark;
+    void setEmpty();
+    
+public:
+    Mark();
+    Mark(int mark);
+    Mark& operator+=(int num);
+    Mark& operator=(int& num);
+    operator int()const;
+    operator double()const;
+    operator char()const;
+};
+int operator+=(int& value, const Mark& mark);
+}
+#endif /* Mark_h */
+
+Script started on Fri 19 Feb 2021 12:50:31 PM EST
+==74889== Memcheck, a memory error detector
+==74889== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==74889== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==74889== Command: ws
+==74889== 
+int ............
+0
+25
+0
+0
++= .............
+20
+45
+0
+0
+= ..............
+80
+0
+70
+double .........
+1
+4
+0
+char ...........
+D
+A
+X
+int += Mark ...
+140
+140
+test all values
+46: F, 0
+51: D, 1
+56: D, 1
+61: C, 2
+66: C, 2
+71: B, 3
+76: B, 3
+81: A, 4
+86: A, 4
+91: A, 4
+96: A, 4
+0: X, 0
+Average: 65 GPA: 2
+==74889== 
+==74889== HEAP SUMMARY:
+==74889==     in use at exit: 0 bytes in 0 blocks
+==74889==   total heap usage: 1 allocs, 1 frees, 72,704 bytes allocated
+==74889== 
+==74889== All heap blocks were freed -- no leaks are possible
+==74889== 
+==74889== For lists of detected and suppressed errors, rerun with: -s
+==74889== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Fri 19 Feb 2021 12:50:31 PM EST
