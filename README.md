@@ -14,6 +14,6 @@ OOP224 - C++ language
 
 WEB222 - JavaScript, HTML, CSS
 
-       final assessment : https://yi-like-e.github.io 
+final assessment : https://yi-like-e.github.io 
 
 DBS211 - Oracle DBMS
