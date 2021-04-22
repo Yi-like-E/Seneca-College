@@ -1,0 +1,30 @@
+/**
+ * Styles for the add-observation.html page 
+ */
+
+.required {
+  color: red;
+}
+
+#species-guess,
+#date,
+#longtitude,
+#latitude {
+  width: 180px;
+}
+
+#description,
+#photographerName,
+#photographerEmail {
+  width: 480px;
+}
+
+#notes,
+#license {
+  width: 500px;
+}
+
+#error-lat-msg,
+#error-lon-msg {
+  color: red;
+}
