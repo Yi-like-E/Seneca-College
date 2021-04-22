@@ -8,10 +8,12 @@ IPC144 - C language
 ULI101 - Linux/Bash scripts
 
 
-2nd Semester :on:
+2nd Semester :white_check_mark:
 -------------------------------------
 OOP224 - C++ language
 
 WEB222 - JavaScript, HTML, CSS
+
+**note** final assessment:https://yi-like-e.github.io 
 
 DBS211 - Oracle DBMS
