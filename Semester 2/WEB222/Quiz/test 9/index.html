@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WEB222 - Password Reset</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+  </head>
+  <body>
+    <!-- Your form here -->
+    <h1>Password Reset Form</h1>
+    <form action="/password-reset" method="post">
+      <label for="reset-email">Email Address</label>
+      <input
+        id="reset-email"
+        name="email"
+        type="email"
+        autofocus
+        autocomplete="email"
+        required="required"
+        tabindex="1"
+      >
+      <label for="reset-currPwd">Current Password</label>
+      <input
+        id="reset-currPwd"
+        name="currPwd"
+        type="password"
+        required="required"
+        tabindex="2"
+      >
+      <label for="reset-newPwd">New Password</label>
+      <input
+        id="reset-newPwd"
+        name="newPwd"
+        type="password"
+        minlength="8"
+        maxlength="64"
+        pattern="/[\w\D]/g"
+        required="required"
+        placeholder="8-64 characters long and contains letters, numbers and symbols"
+        tabindex="3"
+      >
+      <label for="reset-confirm">Confirm New Password</label>
+      <input
+        id="reset-confirm"
+        name="confirm"
+        type="password"
+        minlength="8"
+        maxlength="64"
+        pattern="/[\w\D]/g"
+        required="required"
+        placeholder="Make sure it matches with the new password"
+        tabindex="4"
+      >
+      <div class="button">
+        <input
+          type="submit"
+          name="submit"
+          value="Submit"
+          tabindex="5"
+        >
+      </div>
+    </form>
+  </body>
+</html>
