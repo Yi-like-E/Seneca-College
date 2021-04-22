@@ -1,0 +1,59 @@
+/* import Oswald font from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+/* import Bitter font from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200;400&family=Oswald:wght@200&display=swap');
+/* import Fira Mono font from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+/* Change font style, the size for h1 in header*/
+header h1{
+    font-family: Oswald, sans-serif;
+    font-size: 2.5em;
+}
+
+/* Indent the paragraph and change the size, font for the text in main body */
+main p{
+    text-indent: 2em; 
+    font-family: Bitter, serif;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: justify; /* Each line is stretched so that every lines are equal */
+}
+
+/* Change the font size, style and colour for pre element inside main  */
+main pre{
+    font-family: 'Fira Mono', Courier;
+    font-size: .8em;
+    background-color: rgba(255, 250, 250, 0.774);
+}
+
+/* Assign a colour for the background */
+body {
+    background-color: rgba(223, 223, 219, 0.952);
+}
+
+/* Additional changes */
+
+/* Changing h2 and paragraph colours inside header */
+header h2 {
+    font-size: 1.3em;
+    color: rgba(80, 78, 78, 0.877);
+}
+header p{
+    font-size: 0.9em;
+    line-height: 1.2em;
+    color: rgba(80, 78, 78, 0.877);
+}
+
+header hr{
+    border: 0;
+    height: 0;
+    border-top: 1.5px solid gray;
+}
+
+/* Assign margin */
+body {
+    margin: 50px;
+}
+
+
