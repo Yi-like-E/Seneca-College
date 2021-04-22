@@ -1,5 +1,5 @@
 # Seneca-College
-September, 2019 - Present :school:
+September, 20 - Present :school:
 
 1st Semester :white_check_mark:
 -------------------------------------
