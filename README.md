@@ -19,3 +19,11 @@ NOTE: WEB222 final assessment https://yi-like-e.github.io
 from repository https://github.com/Yi-like-E/Yi-like-E.github.io
 
 DBS211 - Oracle DBMS
+
+3rd Semester ⏳
+-------------------------------------
+OOP345 - c++ language
+
+WEB322 - JavaScript, HTML, CSS
+
+DBS311 - DBMS
