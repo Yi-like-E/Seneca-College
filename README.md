@@ -22,7 +22,7 @@ DBS211 - Oracle DBMS
 
 3rd Semester ⏳
 -------------------------------------
-OOP345 - c++ language
+OOP345 - C++ language
 
 WEB322 - JavaScript, HTML, CSS
 
