@@ -1,0 +1,10 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: 2021/May/26
+
+
+In this workshop, I learned how to receive several arguments from the command line by adding arguments in the main function, use ifndef or pragma once in the event header file to prevent duplicate class definition, declare a global variable, g_sysClock, so that it can be accessed throughout the program, utilize size_t type for variables that only accept positive integer as size_t is the unsigned integer type where unsigned signifies only non-negative integer numbers, and lastly, employ a static variable so that the variable can last the entire lifetime of the program.
+An external linkage is connectivity that connects across different scopes in different modules. An internal linkage, on the other hand, is connectivity that connects across different scopes within the same modules. The global variable g_sysClock, I created in event.h by the code “extern size_t g_sysClock”, by using extern keyword to represent external linkage. This allows the g_sysClock to be accessible from the main program, such as the for loop, for (::g_sysClock = 0u; ::g_sysClock < secInDay; ++::g_sysClock).
+The space for the static variables in a function gets allocated for the lifetime of the program. Even if the function is called several times, space for static variables is only allocated once and the value in the previous call is carried to the next function call. This is useful in this workshop because I can create a variable, static int counter and initialized it to 1 so that the program can keep track of how many times the events had been created.
+        I added dynamic memory allocation to upgrade my Event class so that the program can accept any length of C-style null-terminated string. Furthermore, I followed the rule of three so that I also created a copy constructor, copy assignment operator and set up a destructor to perform memory deallocation.
