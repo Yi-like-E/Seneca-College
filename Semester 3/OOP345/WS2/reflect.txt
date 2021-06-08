@@ -1,0 +1,37 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: 2021/June/03
+
+	In this workshop, I learned how to utilize the C++ standard library <fstream> to read records from a text file using an input file stream object. This is achieved by setting up a one-argument constructor from the StringSet module so that it receives a const char with the file name as the argument. This one-argument constructor not only reads the file but also counts the number of strings is in the file and allocates memory based on the number of strings counted into the array and re-read the file to load the strings into the array. Since the file uses a space as a delimiter, I utilized the getline function to calculate the number of strings and stored in a size_t type variable, numofStr. 
+	I also learned how to apply the std::chrono library to record the start time and end time by using the std::chrono::steady_clock::now() and assign the value to the start time and end time variables. To get the duration between how much time the program spent at each particular task would simply just be the difference between the stop time and start time.  And because we want to show the difference in nanoseconds, we need to add a duration_cast, so the code would look like std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime)
+	This workshop also uses a friend function in the TimedEvents module to overload the insertion operator. A friend function, std::ostream& operator<<(std::ostream&, TimedEvents&)
+ , in this workshop can access the private members of a TimedEvents class.
+        Rule of 5 is also introduced in this workshop, that is, in addition to the rule of three, there are move constructor and move assignment operator. These two functions behave similarly to copy constructor and copy assignment operator, except move constructor and move assignment operators are used when an object of a class with resources will no longer be called once it is copied or assigned, then we can move the object’s resource by copying the address. It is important to note that move operators utilize rvalue references, which are different from the copy constructor and copy assignment operator where they use lvalue references. Two examples from my code for move operator, StringSet(StringSet&& src); and StringSet& operator=(StringSet&& src); which are move operator and move assignment operator respectively. 
+        Since this workshop uses both copy and move operations, there is a significant difference in execution time. The copy operation takes a lot more time to compare to the move operation. The reason for the difference is because copy operation requires a temporary dynamically allocated memory string to receive the copy then the temporary string is then copied to the destination. On the other hand, move operation doesn’t require a temporary string to store the copy, instead, the move operation can be accomplished by simply assigning lvalue equal to rvalue. Thus, move operation is more efficient and takes less time to perform. 
+
+Example of creating a temporary string in copy assignment operation from my code:
+StringSet& StringSet::operator=(const StringSet& src){
+        if(this != &src){
+                numberOfStr = src.numOfStr;
+                delete[] string;
+                string = new std::string[numOfStr];
+                for(size_t i = 0l i < src.numOfStr; i++){
+                        String[i] = src.string[i]
+}
+}
+return *this;
+}
+
+
+Example of using move assignment operator from my code;
+StringSet& StringSet::operator=(StringSet&& src){
+        if(this!= &src){
+        delete[] string;
+        string = src.string;
+        src.string = nullptr;
+        numOfStr = src.numOfStr;
+        src.numOfStr = 0;
+}
+return *this;
+}
