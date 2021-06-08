@@ -24,6 +24,6 @@ DBS211 - Oracle DBMS
 -------------------------------------
 OOP345 - C++ language
 
-WEB322 - JavaScript, HTML, CSS
+WEB322 - JavaScript, HTML, CSS, , Express.js, Monga DB
 
-DBS311 - DBMS
+DBS311 - Sql Plus, Oracle DBMS
