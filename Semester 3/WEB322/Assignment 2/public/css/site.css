@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+.header {
+    background-color: rgb(226, 241, 255);
+    font-family: 'Playfair Display', Times, serif;
+    font-size: 1.8em;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{
+    color: rgb(60, 62, 172);
+    font-family: 'Playfair Display', Times, serif;
+    font-size: 1em;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: rgb(60, 62, 172);
+    background-color:snow;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: rgb(60, 62, 172);
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color:darkorange;
+}
+
+h2 {
+    font-family: 'Mate SC', sans-serif;
+}
+
+body{
+    background-color: snow;
+    color:grey;
+    font-family: 'Mate SC', sans-serif;
+}
+
+article>p, aside>p{
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
