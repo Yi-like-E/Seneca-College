@@ -1,0 +1,11 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: 2021/June/10
+
+	In this workshop, I learned how to design and code class templates and derived other classes from a templated family of classes. The procedure is not that different from a regular inheritance, I just need to include a template declaration before proceeding to code the class. I also learned how to specialize a templated class variable for in our workshop, the string type, for the operator+= overload function. Furthermore, I understand how to do a complementary template declaration to define and initialize the family of class variables. 
+	The reason why only header files are needed for this workshop is that templates only need to be implemented in the header file, there is no need to separate the template function or class definition in the .cpp files. By separating them, it could lead to compiling error since templates are compiled when required and the implementation of a template class or function must be in the same file as its declaration.    
+	=initial in the PairSummable(const K& key, const V& value = initVal):Pair<V, K>(key, value) represents a default argument, so if there is no value assigned in this parameter, the constructor will use the default argument as its value. 
+        The reason to specialize the operator+= member function is that this member function doesn’t apply to concatenated an integer to a string. Without specialization, the operator+= member function is used to adding values. Thus, specialization is needed so that it can define the exception to a template definition of operator+= function.
+	There is no need to specialize the initial value for the summation because the initial value type can be either number or string, and this is why specialization is required so that both scenarios can apply. 
+	The class variables are defined outside of the class definition is due to the fact that class variables require an addition template declaration to define and initialize the family of class variables. And static objects are global variables that only need to be defined once since a class can be included multiple times in many translation units. And we want to avoid assigning new values to static variables every time we create an object, thus, it makes sense to define them outside of the class.
