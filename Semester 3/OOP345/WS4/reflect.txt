@@ -1,0 +1,47 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: June/17/2021
+
+
+        In this workshop, I learned to code in composition and aggregation class relationships, use member function to parse a string into different data type members with the aid of string functions, and manages a dynamically allocated array of pointers to objects.
+        The difference between composition and aggregation class relationships is that composition implements complete ownership, that is, the composer object needs to destroy its component objects at or before its own destruction. Though a composition is less coupled than inheritance and updates in component class don’t affect the composer class, member functions added to the component class need to be forwarded to the composer class. A composition example from the workshop is the Restaurant module, where the Restaurant class has a pointer to the Reservation object. 
+
+class Restaurant{
+    Reservation* m_reservation{};
+    size_t m_cnt{};
+public:
+    Restaurant();
+    Restaurant(const Reservation* reservations[], size_t cnt);
+    size_t size()const;
+    Restaurant(const Restaurant&);
+    Restaurant& operator=(const Restaurant&);
+    Restaurant(Restaurant&&) noexcept;
+    Restaurant& operator=(Restaurant&&) noexcept;
+    ~Restaurant();
+    friend std::ostream& operator<<(std::ostream&, const Restaurant&);
+}
+
+
+        In contrast, aggregation doesn’t need to manage the creation or destruction of the objects that it uses. The aggregator is complete even if the objects that it uses don’t exist, and the objects aggregator uses can survive the destruction of the aggregator. Moreover, aggregation is even less coupled than composition. Not only do the updates to any aggregatee type have no interference with the aggregator type, but member functions added to the aggregatee type don’t need to be forwarded to the aggregator type, unlike the composition. An aggregation example from the workshop is the ConfirmationSender module to Reservation module, where ConfirmationSender can have none or many Reservation members and Reservation can survive without ConfirmationSender. 
+
+
+class ConfirmationSender{
+    const Reservation** m_reservation{};
+    size_t m_cnt{};
+public:
+    ConfirmationSender();
+    ConfirmationSender(const ConfirmationSender&);
+    ConfirmationSender& operator=(const ConfirmationSender&);
+    ConfirmationSender(ConfirmationSender&&) noexcept;
+    ConfirmationSender& operator=(ConfirmationSender&&) noexcept;
+    ConfirmationSender& operator+=(const Reservation&);
+    ConfirmationSender& operator-=(const Reservation&);
+    ~ConfirmationSender();
+    friend std::ostream& operator<<(std::ostream&, const ConfirmationSender&);
+}
+
+
+        Though the implementation of the move and copy functions are similar for composition and aggregation. The difference is that in composition, the copy and move functions need to destroy its resources because it owns the object and is therefore responsible for its destruction. While in aggregation, the copy and move functions are used for creating and destroying the pointer, not the resources. And the pointer is used to point to the objects that have been created outside the scope of the class. 
+        To parse a string into kens I first used a for loop to get rid of the space after the name, since some names contain the last name and require a space to differentiate first and last name. I then used substr(), find_first_not_of(), find_last_not_of() and erase() from string library to read the reservation ID and name while getting rid of unnecessary trailing and leading spaces. And afterwards, I can simply just use substr() to read the rest of the information, such as email, number of people, day and time. I found this approach to be less tedious since I can reduce the number of writing the same lines of code.
+        To manage a dynamically allocated of pointers to objects is similar to the previous workshops, however, resizing the array of Reservation pointers in confirmationSender module was quite challenging. I was getting an invalid read size error, but I found out that was because when I looped through the array, I didn’t decrease the size of the array, and it was reading one extra index.
