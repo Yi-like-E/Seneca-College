@@ -87,6 +87,7 @@ ConfirmationSender& ConfirmationSender::operator-=(const Reservation& src){
         delete[] m_reservation;
         m_reservation = nullptr;
         m_reservation = temp;
+       // m_reservation = std::move(temp); move operator should work as well.
     }
 
     return *this;
