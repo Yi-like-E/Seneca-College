@@ -1,0 +1,36 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: June/25/2021
+
+
+        In this workshop, I learned to design a templated class that allocates and deallocates dynamic memory, using a function object, using lambda expression in the main function, code a member function that receives the address of a callback function to execute, perform error handling by throwing exceptions of different types and distinguish exception types from one another. 
+        The purpose of a templated class, Collection, is to manage a collection of items whether it is a movie or book. The Collection class has a dynamically allocated array that can be resized when a new item is added. When a new item is added to the collection, the Collection class informs the user by a callback function. 
+        A functor is a function object which in C++ defined as the class of which function objects are instantiated, that is, a function object is an instance of a functor. The class overloads the function call operator (). A function that is only used in a local area of an application, that is, within a function, can be written in a lambda expression. A lambda expression doesn’t require an identifier and is a shorthand for a functor. Within the lambda expression referencing environment, closure, has direct access to non-local variables. A lambda expression has a capture list that entails a list of the capture specifications for the non-local variables accessed by the function body. Since a lambda expression is a function that is only used in a local area of an application and doesn’t require a separate class as a functor does, it is more convenient to define an anonymous function object at the location where it is invoked or passed as an argument to a function. Furthermore, a lambda provides better readability. The implementation for both functor and lambda is shown below. 
+
+
+Functor:
+FunctorClass aFunctor;
+aFunctor();
+
+
+Lambda expression:
+[](int value) {return 0 < value && value < 10;}
+
+
+        The lambda expression used in this workshop is at the main function to update the price based on the country. 
+
+
+    auto fixPrice = [&](Book& src){
+        if(src.country() == "US"){
+            src.price() *= usdToCadRate;
+        } else if(src.country() == "UK" && src.year() >= 1990 && src.year() <= 1999){
+            src.price() *= gbpToCadRate;
+        }
+        return src.price();
+    };
+
+
+        The constructor for SpellChecker generates an exception if the file passes as a parameter does not exist, such as passing a non-existed text file, missing_file.txt, in this workshop. In this workshop, I use throw to handle when an exception happens. I think an alternative I can do is to return values for checking abnormal exists by using void std::terminate() and void std::abort() to initiate abnormal termination. However, I think using terminate() is more suitable for this workshop.
+        Since both Movie and Book classes consist of similar logic by designing an abstract class and have Movie and Book as derived classes can be a way to avoid the duplication of logic. 
+        Even though both Movie and Book classes have a custom one-argument constructor, the default constructor is still needed because in case the custom constructor doesn’t work, the member variables will not be initialized and contain garbage values and can result in the failure of the program. However, if we assign a blank value to member variables of a class, then a default constructor is not needed.
