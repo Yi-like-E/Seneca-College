@@ -1,0 +1,71 @@
+Script started on Wed 07 Jul 2021 05:47:47 PM EDT
+==114021== Memcheck, a memory error detector
+==114021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==114021== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==114021== Command: ws dataClean.txt dataMessy.txt
+==114021== 
+[38;5;9mBegin Testing the Program!
+--------------------------[0m
+
+Command Line:
+--------------------------
+  1: ws
+  2: dataClean.txt
+  3: dataMessy.txt
+--------------------------
+
+--------------------------------
+| Cars in the autoshop!        |
+--------------------------------
+|     Toyota | new    | 157.00 |
+|     Jaguar | used   | 295.20 |*
+|      Honda | broken | 145.00 |
+|     Porche | used   | 365.40 |*
+|   Chrysler | new    | 173.00 |
+--------------------------------
+
+Invalid record!
+Invalid record!
+Unrecognized record type: [t]
+--------------------------------
+| Cars in the autoshop!        |
+--------------------------------
+|     Toyota | new    | 157.00 |
+|     Jaguar | used   | 295.20 |*
+|      Honda | broken | 145.00 |
+|     Porche | used   | 365.40 |*
+|   Chrysler | new    | 173.00 |
+| Alfa Romeo | new    | 176.00 |
+|       Ford | new    | 162.00 |
+|   Red Bull | broken | 346.56 |*
+|    Ferrari | new    | 367.33 |*
+--------------------------------
+
+--------------------------------
+|       Fast Vehicles          |
+--------------------------------
+|     Porche | used   | 365.40 |*
+|   Red Bull | broken | 346.56 |*
+|    Ferrari | new    | 367.33 |*
+--------------------------------
+
+--------------------------------
+| Vehicles in need of repair   |
+--------------------------------
+|      Honda | broken | 145.00 |
+|   Red Bull | broken | 346.56 |*
+--------------------------------
+
+[38;5;9m------------------------
+End Testing the Program![0m
+==114021== 
+==114021== HEAP SUMMARY:
+==114021==     in use at exit: 0 bytes in 0 blocks
+==114021==   total heap usage: 50 allocs, 50 frees, 97,463 bytes allocated
+==114021== 
+==114021== All heap blocks were freed -- no leaks are possible
+==114021== 
+==114021== For lists of detected and suppressed errors, rerun with: -s
+==114021== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Wed 07 Jul 2021 05:47:48 PM EDT
