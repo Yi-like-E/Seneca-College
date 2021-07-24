@@ -1,0 +1,45 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: July/07/2021
+
+
+        In this workshop I learned how to manage polymorphic objects using the vector container of the standard library (STL), move a dynamically allocated object into a container, code a range-based iteration on the objects in a container and handle and report an exception. 
+To store the polymorphic objects via vector container, I created a vector data member std::vector<Vehicle*>m_vehicles in the Autoshop module where it stores pointer of the Vehicle object and with operator+= overload Autoshop& Autoshop::operator +=(Vehicle* theVehicle), I am able to use push_back() member function to move a dynamically allocated Vehicle object into the vector after the last element. 
+I also learned how to use a STL iterator to iterate over the vector. For example, in the void Autoshop::display(std::ostream& out)const, I crated an iterator by std::vector<Vehicle*>::const_iterator , the reason for the const_iterator is because the elements in the sequence are unmodifiable, hence the const at the end of the function prototype. To iterate through an unmodifiable array, instead of using begin() and end(), I have to utilize cbegin() and cend(). The code looks like 
+void Autoshop::display(std::ostream& out)const{
+    out << "--------------------------------\n"
+    << "| Cars in the autoshop!        |\n"
+    << "--------------------------------\n";
+    std::vector<Vehicle*>::const_iterator i;
+    for(i = m_vehicles.cbegin(); i != m_vehicles.cend(); i++){
+        (*i)->display(out);
+        out << endl;
+    }
+    out << "--------------------------------\n";
+}
+For the template function void select(T test, std::list<const Vehicle*>& vehicles), I used a regular iterator as there is no const at the end of the function prototype. The code looks like 
+template<typename T>
+    void select(T test, std::list<const Vehicle*>& vehicles){
+        std::vector<Vehicle*>::iterator i;
+        for(i = m_vehicles.begin(); i < m_vehicles.end(); i++){
+            if(test(*i)){
+                vehicles.push_back(*i);
+            }
+        }
+    }
+
+
+        In the w6_p2.cpp, I handle the exception while extracting data by throwing eros to signal through a try catch and thrown exception. An example from the workshop is listed as below
+try{
+            sdds::Vehicle* aVehicle = sdds::createInstance(file);
+            if (aVehicle)
+                as += aVehicle;
+        } catch(std::string& err){
+            std::cout << err << std::endl;
+        }
+ 
+Furthermore, I also created two lambda expressions in the main function where they both receive the parameter, “const sdds::Vehicle*”. 
+The reason I need to deallocate the dynamically allocated memory in your vector is that we are resizing the vector in the program by creating new instances of different types of object, whether it is Car object or Racecar Object. If there is no deallocation, the program will create memory leak issues if the dynamically allocated vehicles were not deleted in the Autoshop module. 
+In loadData(), I used a try-catch to detect if there’s an exception while extracting data, and since in the loadData(), it calls the createInstance function in Utilities.cpp, I checked the type of vehicle in this function and if it is an unknown type, I throw an error message notifying the type of unrecognized record type, which the error is then caught in the loadData(). An alternative method could be reading the files from the main function directly and write a function to validate the data in the Car module. Or use return values for checking abnormal exists in loadData(). I think using std::terminate() would be suitable for this workshop. 
+        I can’t use  std::list<sdds::Vehicle> and std::vector<sdds::Vehicle> to store a collection of vehicles as pointers because it must be the type of data inside the container, Vehicle is not a type, instead, it is a class name. Therefore, it is necessary to use pointer of Vehicle as it is the data type of Vehicle. And without pointer of Vehicle,  dynamic allocation and deallocation can not be achieved. 
