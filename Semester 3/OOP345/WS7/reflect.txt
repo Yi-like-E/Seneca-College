@@ -1,0 +1,59 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: July/144/2021
+
+        In this workshop, I learned how to copy data from a file into a sequential container, use the numeric library to accumulate data values, use lambda expressions to specify an operation on each value in a data set and use the algorithm library to sort data values. 
+        I think the biggest challenge for me in this workshop is to get used to utilizing the functions in the Algorithm library, instead of the manual loops, such as for and while. On top of using these functions, combining them with lambda expressions can be challenging at times. Aside from the algorithm library, I also used the numeric library to perform some numeric operations in this workshop. 
+        The STL functions that I used in this workshop are for_each(), which is used to replace the manual loops so that I can iterate over the container to output the value to the lambda expression. This function is used in void SongCollection::display(std::ostream& out) const and void SongCollection::cleanAlbum(). count_if() is also used to count the occurrences of an artist in the song collection. copy_if() is also used to copy all the songs from the same artist into a list. These two STL functions are applied in std::list<Song> SongCollection::getSongsForArtist(std::string artist) const. accumulate() is used to accumulate the length of song time and the result is displayed beside total listening time in HH:MM:SS format. I used sort() in the void SongCollection::display(std::ostream& out) const to sort the collection in ascending order based on the received parameter. any_of() is used in bool SongCollection::inCollection(std::string artist) const to look for collection of a specific artist. 
+An example using for_each() in my code 
+void SongCollection::cleanAlbum(){
+    for_each(m_collection.begin(), m_collection.end(), [](Song& s){
+        if(s.m_album == "[None]"){
+            s.m_album = " ";
+        }
+    });
+};
+
+
+An example of using count_if() and copy_if() in my code
+std::list<Song> SongCollection::getSongsForArtist(std::string artist) const{
+    auto count = count_if(m_collection.begin(), m_collection.end(), [&artist](const Song& s){
+        return artist == s.m_artist;
+    });
+    std::list<Song> collection(count);
+    copy_if(m_collection.begin(), m_collection.end(), collection.begin(), [&artist](const Song& s){
+        return artist == s.m_artist;
+    });
+    return collection;
+};
+
+
+An example of using any_of() in my code
+bool SongCollection::inCollection(std::string artist) const{
+    return any_of(m_collection.begin(), m_collection.end(), [&artist](const Song& s){
+        return artist == s.m_artist;
+    });
+};
+
+
+        The advantages of using the STL algorithm over manual loop are preventing range error since I can just use .begin() and .end() and this way I know the function will iterate through the correct range, instead of the manual loop where I have to specify where to begin and end. Moreover, there’s less typing and the built-in functions are optimized to work efficiently. 
+        I added an else statement to throw an error message, “Unidentified parameter.”, in the sort function when the user passes an invalid parameter. So that if the parameter passed aren’t recognized by the function, an error message. The code for the sort function looks like 
+void SongCollection::sort(std::string name){
+    if(name == "title"){
+        std::sort(m_collection.begin(), m_collection.end(), [](const Song& a, const Song& b){
+            return a.m_title < b.m_title;
+        });
+    } else if(name == "album"){
+        std::sort(m_collection.begin(), m_collection.end(), [](const Song& a, const Song& b){
+            return a.m_album < b.m_album;
+        });
+    } else if(name == "length"){
+        std::sort(m_collection.begin(), m_collection.end(), [](const Song& a, const Song& b){
+            return a.m_length < b.m_length;
+        });
+    } else {
+        throw "Unidentified parameter.";
+    }
+};
+
