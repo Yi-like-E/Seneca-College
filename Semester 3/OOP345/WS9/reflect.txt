@@ -1,0 +1,80 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: July/27/2021
+
+
+        In this workshop, I learned how to process partitioned data on multiple threads, write a set of characters to a file in binary mode, read a set of characters from a file in binary mode, bind a function to its arguments via bind function and compile a multi-threads program on matrix with an extra flag, -pthread, to enable threading capabilities. 
+        To open a binary file for writing, I used an output member function, write(),  in ostream class and specify the file will be in binary mode inside the argument.  
+
+void SecureData::backup(const char* file) {
+        if (!text)
+                throw std::string("\n***No data stored***\n");
+        else if (!encoded)
+                throw std::string("\n***Data is not encoded***\n");
+        else
+        {
+                // Open a binary file for writing
+                    ofstream biFile(file, std::ios::out|std::ios::binary);
+
+
+                // Write data into the binary file
+                    biFile.write(text, nbytes);
+                           biFile.close();
+        }
+}
+        To open a binary file for reading, I used the read() in istream class to reads a stream in binary mode. The restore function in SecureData module reads a binary file and allocate memory for the file content before reading the content of the binary file. 
+
+
+void SecureData::restore(const char* file, char key) {
+// Open binary file for reading
+        ifstream biFile(file, std::ios::in|std::ios::binary);
+
+
+// Allocate memory here for the file content
+        delete[] text;
+        text = new char[nbytes+1];
+
+
+        // Read the content of the binary file
+        biFile.read(text, nbytes);
+
+
+*ofs << "\n" << nbytes << " bytes copied from binary file "
+                        << file << " into memory.\n";
+
+
+        encoded = true;
+
+
+        // decode using key
+        code(key);
+
+
+        *ofs << "Data decrypted in memory\n\n";
+}
+
+
+We use binary files in this workshop because binary access transfers data to and from memory without any formatting, meaning there is no conversion, insertion, or extraction of record or field separators. Moreover, since binary access uses less memory compared to text files, the program could run faster. I used a binary file for writing and reading in this workshop.
+Writing:
+        ofstream biFile(file, std::ios::out|std::ios::binary);
+Reading:
+        ifstream biFile(file, std::ios::in|std::ios::binary);
+Bind function is useful for partial function application, which refers to the process of fixing a number of arguments to a function, producing another function of smaller arity. The benefit of using bind function is that it can manipulate the position and number of parameters. In this workshop, bind function is used to convert a complex function into a simpler function. The first argument of bind function is the function’s name, converter, and the rest of the arguments are the parameter of the used function. 
+Example of using bind function:
+for(int i = 0; i < 4; i++){
+        t[i] = thread(bind(converter, text+section*i, key, section, Cryptor()));
+        t[i].join();
+}
+        A multi-threaded programming solution improves the elapsed time to complete execution by distributing independent tasks across separate hardware threads. The operating system can schedule several threads for concurrent execution. I accomplished multi-threading by using thread class. So I first created multiple threads by using a for loop to bind and join them so that the spawned threads can rejoin the main thread and finish executing tasks and return control to the operating system. In this workshop, I created multiple threads in the code function: 
+void SecureData::code(char key)
+{
+        int section = nbytes/4;
+        int numThreads = 4;
+        thread t[numThreads];
+        for(int i = 0; i < 4; i++){
+            t[i] = thread(bind(converter, text+section*i, key, section, Cryptor()));
+            t[i].join();
+        }
+encoded = !encoded;
+}
