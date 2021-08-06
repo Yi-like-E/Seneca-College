@@ -1,0 +1,60 @@
+Name: YiHsun Lee
+Student Number: 129713202
+Email: ylee212@myseneca.ca
+Date: July/21/2021
+
+
+        In this workshop I learned how to use a smart pointer to move an object, how using raw pointers can cause memory leak issues and use a nested loop structure to configure a quadratic complexity solution. 
+        The first part of the workshop is to use raw pointers to create a list of products and validate the price of each product. If the price is below zero, then the program will throw an error. However, since we are using raw pointers here when the program throws an error after creating the object, the object will not get deleted since the program will not reach the delete object part. 
+Code for creating a list of product with raw pointers:
+List<Product> mergeRaw(const List<Description>& desc, const List<Price>& price) {
+        List<Product> priceList;
+        for(size_t i = 0; i < desc.size(); i++){
+            for(size_t j = 0; j < price.size(); j++){
+                if(desc[i].code == price[j].code){
+                    Product* p = new Product(desc[i].desc, price[j].price);
+                    p->validate();
+                    priceList+=p;
+                    delete p;
+                    
+                }
+            }
+        }
+       return priceList;
+}
+
+
+In contrast, the second part of the workshop utilizes smart pointers to create a list of products and go through the same validation process. However, using a smart pointer with std::unique_ptr<> template doesn’t require me to do manual delete, since a unique smart pointer will call its object’s or resource’s destructor when itself is destroyed.  
+Code for creating a list of product with raw pointers:
+List<Product> mergeSmart(const List<Description>& desc, const List<Price>& price) {
+List<Product> priceList;
+                for(size_t i = 0; i < desc.size(); i++){
+                         for(size_t j = 0; j < price.size(); j++){
+                     if(desc[i].code == price[j].code){
+                         std::unique_ptr<Product> p{new Product(desc[i].desc, price[j].price)};
+                         p->validate();
+                         priceList+=p;
+                }
+            }
+        }
+       return priceList;
+}
+
+
+        The main advantage of using smart pointers is like mentioned above, it can prevent memory leaks as smart pointers will manage memory deallocation for the object or resource automatically at the destruction time. And to utilize smart pointers, the syntax would be different. Take the operator+= overload functions in List header file, with a smart pointer the function looks like
+        void operator+=(std::unique_ptr<T>& obj){
+            list.push_back(*obj);
+        }
+The std::unique_ptr denotes the use of a smart pointer and I have to use the dereferencing operator (*) when moving the object into a vector list. 
+To overload operator+= function with a raw pointer, the function looks like 
+void operator+=(T* obj){
+        list.push_back(*obj);
+}
+
+And there is also a difference when creating a new object using a raw pointer and a smart pointer.
+With smart pointers
+std::unique_ptr<Product> p{new Product(desc[i].desc, price[j].price)};
+While creating a new object with raw pointers look like what I’ve been doing for the past workshops
+Product* p = new Product(desc[i].desc, price[j].price);
+And I have to deal with memory deallocation manually with raw pointers after creating it in order to prevent memory leak, though a memory leak would still happen if before calling the destructor there’s an error and the destructor would never be called. This is what part 1 of the workshop demonstrated. 
+
