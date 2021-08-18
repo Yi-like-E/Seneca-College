@@ -24,6 +24,8 @@ DBS211 - Oracle DBMS
 -------------------------------------
 OOP345 - C++ language
 
-WEB322 - JavaScript, HTML, CSS, , Express.js, Mongo DB
+WEB322 - JavaScript, HTML, CSS, , Express.js, Handlebars.js, Mongo DB
+
+Final WEB322 project: https://mighty-sierra-89111.herokuapp.com
 
 DBS311 - Sql Plus, Oracle DBMS, Mongo DB
