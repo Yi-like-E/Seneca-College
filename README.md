@@ -10,7 +10,7 @@ ULI101 - Linux/Bash scripts
 
 2nd Semester :white_check_mark:
 -------------------------------------
-OOP224 - C++ language
+OOP224 - Introduction to C++ language
 
 WEB222 - JavaScript, HTML, CSS
 
@@ -22,7 +22,7 @@ DBS211 - Oracle DBMS
 
 3rd Semester ⏳
 -------------------------------------
-OOP345 - C++ language
+OOP345 - Multi-threading, containers, inheritance hierarchies and polumorphism in C++ language
 
 WEB322 - JavaScript, HTML, CSS, , Express.js, Handlebars.js, Mongo DB
 
