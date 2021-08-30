@@ -22,7 +22,7 @@ DBS211 - Oracle DBMS
 
 3rd Semester :white_check_mark:
 -------------------------------------
-OOP345 - Multi-threading, containers, inheritance hierarchies and polumorphism in C++ language
+OOP345 - Multi-threading, containers, inheritance hierarchies and polymorphism in C++ language
 
 WEB322 - JavaScript, HTML, CSS, Express.js, Handlebars.js, Mongo DB
 
