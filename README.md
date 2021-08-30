@@ -24,7 +24,7 @@ DBS211 - Oracle DBMS
 -------------------------------------
 OOP345 - Multi-threading, containers, inheritance hierarchies and polumorphism in C++ language
 
-WEB322 - JavaScript, HTML, CSS, , Express.js, Handlebars.js, Mongo DB
+WEB322 - JavaScript, HTML, CSS, Express.js, Handlebars.js, Mongo DB
 
 Final WEB322 project: https://mighty-sierra-89111.herokuapp.com
 
