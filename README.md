@@ -20,7 +20,7 @@ from repository https://github.com/Yi-like-E/Yi-like-E.github.io
 
 DBS211 - Oracle DBMS
 
-3rd Semester ⏳
+3rd Semester :white_check_mark:
 -------------------------------------
 OOP345 - Multi-threading, containers, inheritance hierarchies and polumorphism in C++ language
 
