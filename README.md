@@ -29,3 +29,7 @@ WEB322 - JavaScript, HTML, CSS, Express.js, Handlebars.js, Mongo DB
 Final WEB322 project: https://mighty-sierra-89111.herokuapp.com
 
 DBS311 - Sql Plus, Oracle DBMS, Mongo DB
+
+
+CO-OP at TDSB as Junior Web Developer From September 2021 To April 2022 💼
+-----------------------------------------------------------------------------------------
