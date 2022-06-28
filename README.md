@@ -41,15 +41,15 @@ CO-OP at TDSB as Junior Web Developer From September 2021 To April 2022 💼
 
 4th Semester ⏳
 -------------------------------------
-JAC444 - Introduction to JAVA for C++ programmers
+**JAC444 - Introduction to JAVA for C++ programmers**
 
    Hands on practice using Java as an object-oriented language. Covered topics like OO concepts in Java, threads, exceptions, GUI programming using Graphics 2D/Swing, input/output, networking, client-server programming, applets, servlets and database access via JDBC
 
 
-WEB422 - Web Programming for Apps and Services
+**WEB422 - Web Programming for Apps and Services**
   
    Learn to design and create moderately complex web applications and services that can be deployed at scale. The JavaScript language is used, with widely-used and powerful tools and frameworks such as React, Angular and Node that enable rich and functional browser apps, working with robust and scalable data storage platforms, and deployment methodologies.
    
-WEB524 - Web Programming Using ASP.NET
+**WEB524 - Web Programming Using ASP.NET**
 
     Learn the concepts, technical skills, and business knowledge required to develop data-driven web sites hosted on the Microsoft Web Platform with focus on server-side ASP.NET programming technologies and the C# language. Work with current and full-featured data access technologies, and interact with local and remote data stores.
