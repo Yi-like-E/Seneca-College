@@ -53,3 +53,7 @@ CO-OP at TDSB as Junior Web Developer From September 2021 To April 2022 💼
 **WEB524 - Web Programming Using ASP.NET**
 
    Learn the concepts, technical skills, and business knowledge required to develop data-driven web sites hosted on the Microsoft Web Platform with focus on server-side ASP.NET programming technologies and the C# language. Work with current and full-featured data access technologies, and interact with local and remote data stores.
+   
+**BCI433 - IBM Business Computing**
+
+    business information technology on the IBM midrange family of computers running the IBM i operating system.
