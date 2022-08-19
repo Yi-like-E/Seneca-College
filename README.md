@@ -56,4 +56,4 @@ CO-OP at TDSB as Junior Web Developer From September 2021 To April 2022 💼
    
 **BCI433 - IBM Business Computing**
 
-    business information technology on the IBM midrange family of computers running the IBM i operating system.
+   Business information technology on the IBM midrange family of computers running the IBM i operating system.
